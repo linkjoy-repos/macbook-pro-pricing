@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MacBook Pro 구매 비교 — M5 Pro & Max</title>
-<meta name="description" content="14·16인치 MacBook Pro M5 Pro / Max, 한글 및 영문(US) 키보드, 48·64GB 구성의 애플 공홈과 쿠팡 가격을 AppleCare+ 포함 총액으로 비교하세요.">
+<meta name="description" content="14·16인치 MacBook Pro M5 Pro / Max, 실버 및 스페이스 블랙, 한글 및 영문(US) 키보드, 48·64GB 구성의 애플 공홈과 쿠팡 가격을 AppleCare+ 포함 총액으로 비교하세요.">
 <style>
 :root {
   /* 다크 모드 기본 테마 (Chrome Dark & Vintage Charcoal Black) */
@@ -47,6 +47,14 @@
   --badge-en-bg: rgba(245, 158, 11, 0.14);
   --badge-en-text: #fcd34d;
   --badge-en-border: rgba(245, 158, 11, 0.25);
+
+  --badge-silver-bg: rgba(226, 232, 240, 0.12);
+  --badge-silver-text: #e2e8f0;
+  --badge-silver-border: rgba(226, 232, 240, 0.25);
+
+  --badge-black-bg: rgba(0, 0, 0, 0.4);
+  --badge-black-text: #cbd5e1;
+  --badge-black-border: rgba(255, 255, 255, 0.18);
 
   --chip-pro-bg: rgba(255, 255, 255, 0.06);
   --chip-pro-text: #e8eaed;
@@ -125,6 +133,14 @@ body.light-theme {
   --badge-en-bg: #fef3c7;
   --badge-en-text: #b45309;
   --badge-en-border: #fde68a;
+
+  --badge-silver-bg: #f1f5f9;
+  --badge-silver-text: #334155;
+  --badge-silver-border: #cbd5e1;
+
+  --badge-black-bg: #1e293b;
+  --badge-black-text: #f8fafc;
+  --badge-black-border: #0f172a;
 
   --chip-pro-bg: #f1f4f8;
   --chip-pro-text: #334155;
@@ -357,13 +373,13 @@ p { margin: 0; }
 .filterrow {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 .filtergroup {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 .filterlabel {
   color: var(--text-secondary);
@@ -382,7 +398,7 @@ p { margin: 0; }
   border: 0;
   background: transparent;
   color: var(--segment-btn-color);
-  padding: 6px 14px;
+  padding: 6px 13px;
   border-radius: 6px;
   font-size: 14px;
   font-weight: 500;
@@ -527,6 +543,18 @@ h2 {
   background: var(--badge-bg);
   color: var(--badge-text);
   border: 1px solid var(--badge-border);
+}
+.badge.badge-silver {
+  background: var(--badge-silver-bg);
+  color: var(--badge-silver-text);
+  border-color: var(--badge-silver-border);
+  font-weight: 650;
+}
+.badge.badge-black {
+  background: var(--badge-black-bg);
+  color: var(--badge-black-text);
+  border-color: var(--badge-black-border);
+  font-weight: 650;
 }
 .badge.kbd-kr {
   background: var(--badge-kr-bg);
@@ -712,7 +740,7 @@ h2 {
 }
 
 @media(max-width: 1000px) {
-  .filterrow { gap: 16px; }
+  .filterrow { gap: 14px; }
   .summary .price { font-size: 27px; }
   .offerrow { grid-template-columns: 55px 1fr auto; gap: 10px; }
   .amount { font-size: 19px; }
@@ -780,7 +808,7 @@ h2 {
   <section class="intro">
     <div>
       <h1>원하는 사양, 실제 구매 총액.</h1>
-      <p>14·16인치 · M5 Pro / Max · 한글/영문 자판 · 48·64GB</p>
+      <p>14·16인치 · M5 Pro / Max · 실버/스페이스 블랙 · 한글/영문 자판 · 48·64GB</p>
     </div>
     <span class="tag">공홈 vs 쿠팡 · 새 상품 기준</span>
   </section>
@@ -835,6 +863,16 @@ h2 {
         </div>
       </div>
 
+      <!-- 기본 선택: 실버 -->
+      <div class="filtergroup">
+        <span class="filterlabel" id="color-label">색상</span>
+        <div class="segments" role="group" aria-labelledby="color-label" data-filter="color">
+          <button type="button" data-value="all" aria-pressed="false">전체</button>
+          <button type="button" data-value="silver" aria-pressed="true">실버</button>
+          <button type="button" data-value="black" aria-pressed="false">스페이스 블랙</button>
+        </div>
+      </div>
+
       <!-- 키보드 선택: 전체 / 한글 / 영문(US) -->
       <div class="filtergroup">
         <span class="filterlabel" id="kbd-label">키보드</span>
@@ -856,7 +894,7 @@ h2 {
       <label class="sort">정렬
         <select id="sort">
           <option value="price">구매 총액 낮은 순</option>
-          <option value="size">화면·칩·메모리·자판 순</option>
+          <option value="size">화면·칩·메모리·색상 순</option>
           <option value="saving">절약 금액 큰 순</option>
         </select>
       </label>
@@ -864,7 +902,7 @@ h2 {
   </section>
 
   <div class="resulthead">
-    <h2>구성별 비교 <span id="count">4개</span></h2>
+    <h2>구성별 비교 <span id="count">2개</span></h2>
     <span id="mode">본체 + AppleCare+ · 카드 할인 전</span>
   </div>
 
@@ -877,11 +915,11 @@ h2 {
 
   <section class="notes">
     <div class="note">
-      <h2>한글 vs 영문(US) 키보드 안내</h2>
+      <h2>색상 & 키보드 구매 가이드</h2>
       <ul>
+        <li><strong>색상 선택</strong>: 실버(Silver)와 스페이스 블랙(Space Black) 모두 애플 공홈 및 공식 유통가 기준 <strong>출고 가격이 동일</strong>합니다. 실버는 지문과 생활 스크래치에 강하고, 스페이스 블랙은 아노다이징 코팅으로 묵직한 프로페셔널 감성을 제공합니다.</li>
         <li><strong>애플 공홈</strong>: 한글 자판과 영문(US) 자판 모두 <strong>본체 및 AppleCare+ 금액이 동일(추가금 0원)</strong>하며 주문 제작(CTO)으로 출고됩니다.</li>
-        <li><strong>쿠팡 로켓배송</strong>: 국내 정식 유통 규격인 <strong>한글 자판 모델 기준</strong>으로 즉시할인 및 카드할인이 적용됩니다. 영문 자판은 쿠팡 공식 판매가가 확인되지 않으므로 공홈 주문을 권장합니다.</li>
-        <li>영문(US) 자판은 한글 각인이 없어 시각적으로 정돈되어 있고 일자형 Return 키를 선호하는 개발자/전문가에게 인기가 많습니다.</li>
+        <li><strong>쿠팡 로켓배송</strong>: 주로 한글 자판 모델 기준으로 카드 할인 및 와우회원 즉시 할인이 적용됩니다. 영문 자판 모델은 애플 공홈 구매를 추천합니다.</li>
       </ul>
     </div>
     <div class="note">
@@ -954,46 +992,55 @@ document.getElementById('themeToggle').addEventListener('click', () => {
 const appleURL = 'https://www.apple.com/kr/shop/buy-mac/macbook-pro';
 const cpURL = (p, i, v) => `https://www.coupang.com/vp/products/${p}?itemId=${i}&vendorItemId=${v}`;
 
-const baseModels = [
-  {id: '14-pro-48', size: 14, chip: 'Pro', cpu: 15, gpu: 16, ram: 48, ssd: 1, apple: 5210000, cp: 4754700, url: cpURL('9140128274', '28093741940', '95050035785'), color: '실버 · 스페이스 블랙 동일가'},
-  {id: '14-pro18-48', size: 14, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 1, apple: 5660000, cp: null, color: '공홈 맞춤 주문(CTO)'},
-  {id: '14-pro-64', size: 14, chip: 'Pro', cpu: 18, gpu: 20, ram: 64, ssd: 1, apple: 6340000, cp: null, color: '공홈 맞춤 주문(CTO)'},
-  {id: '16-pro-48', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 1, apple: 6010000, cp: 5566770, url: cpURL('9410700446', '27961799447', '94919837921'), color: '스페이스 블랙'},
-  {id: '16-pro-48-2tb', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 2, apple: 6860000, cp: 6416770, url: cpURL('9410700446', '28093741945', '95050035765'), color: '스페이스 블랙'},
-  {id: '16-pro-64', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 64, ssd: 1, apple: 6690000, cp: null, color: '공홈 맞춤 주문(CTO)'},
-  {id: '14-max-48', size: 14, chip: 'Max', cpu: 18, gpu: 40, ram: 48, ssd: 2, apple: 8010000, cp: null, color: '공홈 맞춤 주문(CTO)'},
-  {id: '14-max-64', size: 14, chip: 'Max', cpu: 18, gpu: 40, ram: 64, ssd: 2, apple: 8690000, cp: null, color: '공홈 맞춤 주문(CTO)'},
-  {id: '16-max-48', size: 16, chip: 'Max', cpu: 18, gpu: 40, ram: 48, ssd: 2, apple: 8490000, cp: 7540000, url: cpURL('9410700446', '27961799450', '94919837915'), color: '스페이스 블랙'},
-  {id: '16-max-64', size: 16, chip: 'Max', cpu: 18, gpu: 40, ram: 64, ssd: 2, apple: 9170000, cp: 8220000, url: cpURL('9410700446', '28093741909', '95050035744'), color: '스페이스 블랙'}
+const baseSpecs = [
+  {id: '14-pro-48', size: 14, chip: 'Pro', cpu: 15, gpu: 16, ram: 48, ssd: 1, apple: 5210000, cp: 4754700, url: cpURL('9140128274', '28093741940', '95050035785')},
+  {id: '14-pro18-48', size: 14, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 1, apple: 5660000, cp: null, url: null},
+  {id: '14-pro-64', size: 14, chip: 'Pro', cpu: 18, gpu: 20, ram: 64, ssd: 1, apple: 6340000, cp: null, url: null},
+  {id: '16-pro-48', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 1, apple: 6010000, cp: 5566770, url: cpURL('9410700446', '27961799447', '94919837921')},
+  {id: '16-pro-48-2tb', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 2, apple: 6860000, cp: 6416770, url: cpURL('9410700446', '28093741945', '95050035765')},
+  {id: '16-pro-64', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 64, ssd: 1, apple: 6690000, cp: null, url: null},
+  {id: '14-max-48', size: 14, chip: 'Max', cpu: 18, gpu: 40, ram: 48, ssd: 2, apple: 8010000, cp: null, url: null},
+  {id: '14-max-64', size: 14, chip: 'Max', cpu: 18, gpu: 40, ram: 64, ssd: 2, apple: 8690000, cp: null, url: null},
+  {id: '16-max-48', size: 16, chip: 'Max', cpu: 18, gpu: 40, ram: 48, ssd: 2, apple: 8490000, cp: 7540000, url: cpURL('9410700446', '27961799450', '94919837915')},
+  {id: '16-max-64', size: 16, chip: 'Max', cpu: 18, gpu: 40, ram: 64, ssd: 2, apple: 9170000, cp: 8220000, url: cpURL('9410700446', '28093741909', '95050035744')}
 ];
 
-// 한글 및 영문(US) 키보드 모델 데이터 생성
+const colorOptions = [
+  { key: 'silver', label: '실버', badge: '⚪️ 실버' },
+  { key: 'black', label: '스페이스 블랙', badge: '⚫️ 스페이스 블랙' }
+];
+
+const kbdOptions = [
+  { key: 'kr', label: '한글 자판', icon: '🇰🇷' },
+  { key: 'en', label: '영문(US) 자판', icon: '🇺🇸' }
+];
+
+// 색상 및 키보드 조합 모델 데이터 생성
 const models = [];
-baseModels.forEach(m => {
-  // 한글 자판 모델
-  models.push({
-    ...m,
-    id: `${m.id}-kr`,
-    kbd: 'kr',
-    kbdName: '한글 자판',
-    detailColor: m.color,
-    isCoupangAvailable: m.cp !== null
-  });
-  // 영문(US) 자판 모델 (공홈 정가 동일, 쿠팡 로켓배송은 영문 미지원으로 미확인/공홈 구매 안내)
-  models.push({
-    ...m,
-    id: `${m.id}-en`,
-    kbd: 'en',
-    kbdName: '영문(US) 자판',
-    cp: null,
-    url: null,
-    detailColor: '공홈 맞춤 주문(CTO) 전용 · 영문 자판',
-    isCoupangAvailable: false
+baseSpecs.forEach(spec => {
+  colorOptions.forEach(col => {
+    kbdOptions.forEach(k => {
+      const isKr = k.key === 'kr';
+      const isCoupangEligible = isKr && spec.cp !== null;
+      models.push({
+        ...spec,
+        id: `${spec.id}-${col.key}-${k.key}`,
+        color: col.key,
+        colorName: col.label,
+        colorBadge: col.badge,
+        kbd: k.key,
+        kbdName: k.label,
+        kbdIcon: k.icon,
+        cp: isCoupangEligible ? spec.cp : null,
+        url: isCoupangEligible ? spec.url : null,
+        detailText: isKr ? `${col.label} · ${spec.url ? '쿠팡 로켓배송' : '공홈 맞춤 구성'}` : `${col.label} · 공홈 맞춤 주문(CTO) 전용`
+      });
+    });
   });
 });
 
-// 기본 선택: 16인치, Pro, 48GB, 전체 키보드
-const filters = { size: '16', chip: 'Pro', ram: '48', kbd: 'all' };
+// 기본 선택: 16인치, Pro, 48GB, 실버, 전체 키보드
+const filters = { size: '16', chip: 'Pro', ram: '48', color: 'silver', kbd: 'all' };
 const money = n => n.toLocaleString('ko-KR') + '원';
 const careCost = (m, s) => s === 'apple' ? (m.size === 14 ? 459000 : 629000) : (m.size === 14 ? 367200 : 503200);
 
@@ -1008,8 +1055,8 @@ function render() {
 
   list.sort(
     sort === 'saving' ? (a, b) => savings(b) - savings(a) || cheap(a) - cheap(b) :
-    sort === 'size' ? (a, b) => a.size - b.size || (a.chip === b.chip ? 0 : a.chip === 'Pro' ? -1 : 1) || a.ram - b.ram || a.cpu - b.cpu || a.ssd - b.ssd || (a.kbd === b.kbd ? 0 : a.kbd === 'kr' ? -1 : 1) :
-    (a, b) => cheap(a) - cheap(b) || (a.kbd === b.kbd ? 0 : a.kbd === 'kr' ? -1 : 1)
+    sort === 'size' ? (a, b) => a.size - b.size || (a.chip === b.chip ? 0 : a.chip === 'Pro' ? -1 : 1) || a.ram - b.ram || a.cpu - b.cpu || a.ssd - b.ssd || (a.color === b.color ? 0 : a.color === 'silver' ? -1 : 1) || (a.kbd === b.kbd ? 0 : a.kbd === 'kr' ? -1 : 1) :
+    (a, b) => cheap(a) - cheap(b) || (a.color === b.color ? 0 : a.color === 'silver' ? -1 : 1) || (a.kbd === b.kbd ? 0 : a.kbd === 'kr' ? -1 : 1)
   );
 
   document.getElementById('count').textContent = list.length + '개';
@@ -1028,16 +1075,18 @@ function render() {
   document.getElementById('results').innerHTML = list.map(m => {
     const a = total(m, 'apple'), c = total(m, 'cp');
     const isKr = m.kbd === 'kr';
+    const isSilver = m.color === 'silver';
     return `
       <article class="card">
         <div class="cardhead">
           <div>
             <h3>${m.size}인치 MacBook Pro</h3>
-            <p class="spec">${m.cpu}코어 CPU · ${m.gpu}코어 GPU · ${isKr ? '한글 키보드' : '영문(US) 키보드'}</p>
+            <p class="spec">${m.cpu}코어 CPU · ${m.gpu}코어 GPU · ${m.colorName} · ${isKr ? '한글 키보드' : '영문(US) 키보드'}</p>
           </div>
           <span class="chip ${m.chip === 'Max' ? 'max' : ''}">M5 ${m.chip}</span>
         </div>
         <div class="badges">
+          <span class="badge ${isSilver ? 'badge-silver' : 'badge-black'}">${m.colorBadge}</span>
           <span class="badge ${isKr ? 'kbd-kr' : 'kbd-en'}">${isKr ? '🇰🇷 한글 자판' : '🇺🇸 영문(US) 자판'}</span>
           <span class="badge">${m.ram}GB 메모리</span>
           <span class="badge">${m.ssd}TB SSD</span>
@@ -1060,7 +1109,7 @@ function render() {
           <span>${care && c !== null ? '쿠팡 ' + money(careCost(m, 'cp')) : (c === null ? (isKr ? '공홈 기준으로 비교 가능' : '공홈 동일 가격') : '새 상품 기준')}</span>
         </div>
         <div class="cardfooter">
-          <span class="detail">${m.detailColor}</span>
+          <span class="detail">${m.detailText}</span>
           <a class="linkbutton" href="${m.url || appleURL}" target="_blank" rel="noopener noreferrer">${m.url ? '쿠팡 상품 ↗' : (isKr ? '공홈 구성 ↗' : '공홈 영문 CTO ↗')}</a>
         </div>
       </article>
