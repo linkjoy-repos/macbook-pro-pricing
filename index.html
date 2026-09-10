@@ -894,7 +894,7 @@ h2 {
       <label class="sort">정렬
         <select id="sort">
           <option value="price">구매 총액 낮은 순</option>
-          <option value="size">화면·칩·메모리·색상 순</option>
+          <option value="size">화면·칩·메모리·자판 순</option>
           <option value="saving">절약 금액 큰 순</option>
         </select>
       </label>
@@ -915,11 +915,11 @@ h2 {
 
   <section class="notes">
     <div class="note">
-      <h2>색상 & 키보드 구매 가이드</h2>
+      <h2>쿠팡 영문(US) 자판 재고 안내</h2>
       <ul>
-        <li><strong>색상 선택</strong>: 실버(Silver)와 스페이스 블랙(Space Black) 모두 애플 공홈 및 공식 유통가 기준 <strong>출고 가격이 동일</strong>합니다. 실버는 지문과 생활 스크래치에 강하고, 스페이스 블랙은 아노다이징 코팅으로 묵직한 프로페셔널 감성을 제공합니다.</li>
-        <li><strong>애플 공홈</strong>: 한글 자판과 영문(US) 자판 모두 <strong>본체 및 AppleCare+ 금액이 동일(추가금 0원)</strong>하며 주문 제작(CTO)으로 출고됩니다.</li>
-        <li><strong>쿠팡 로켓배송</strong>: 주로 한글 자판 모델 기준으로 카드 할인 및 와우회원 즉시 할인이 적용됩니다. 영문 자판 모델은 애플 공홈 구매를 추천합니다.</li>
+        <li><strong>쿠팡 로켓배송 영문 자판</strong>: 16인치 M5 Pro 48GB 모델 등 전문가/개발자 선호 구성은 쿠팡 로켓배송에서도 <strong>영문(US) 키보드 모델이 정식 판매</strong>되고 있습니다. (<a href="https://www.coupang.com/vp/products/9410700446?itemId=28078100527&vendorItemId=95034603133" target="_blank" rel="noopener noreferrer">16인치 영문 자판 상품 바로가기 ↗</a>)</li>
+        <li><strong>동일 할인율 적용</strong>: 한글 자판과 동일하게 쿠팡 로켓배송 할인가(약 44.3만원 절약) 혜택을 누리실 수 있습니다.</li>
+        <li><strong>애플 공홈</strong>: 한글 자판과 영문(US) 자판 모두 본체 가격 및 AppleCare+ 금액이 동일(추가금 0원)합니다.</li>
       </ul>
     </div>
     <div class="note">
@@ -938,9 +938,9 @@ h2 {
     <div class="note">
       <h2>카드 할인은 총액에서 한 번 더</h2>
       <ul>
-        <li>14인치 Pro 48GB·1TB 실버: 와우회원 대상 카드 할인 최대 <strong>9,200원</strong>. AppleCare+ 포함 계산 시 <strong>5,112,700원</strong>.</li>
-        <li>16인치 Pro 48GB·1TB 블랙: 와우회원 대상 카드 할인 최대 <strong>145,150원</strong>. AppleCare+ 포함 계산 시 <strong>5,924,820원</strong>.</li>
-        <li>대상 카드·주문 조건 충족 시 적용. 위 비교에는 카드 할인, 신규 와우 가입 쿠폰, 최대 5만원 적립을 차감하지 않았습니다.</li>
+        <li>14인치 Pro 48GB·1TB: 와우회원 대상 카드 할인 최대 <strong>9,200원</strong>. AppleCare+ 포함 계산 시 <strong>5,112,700원</strong>.</li>
+        <li>16인치 Pro 48GB·1TB: 와우회원 대상 카드 할인 최대 <strong>145,150원</strong>. AppleCare+ 포함 계산 시 <strong>5,924,820원</strong>.</li>
+        <li>스페이스 블랙과 실버 색상은 출고가 및 쿠팡 기본 할인 가격이 동일합니다.</li>
       </ul>
     </div>
   </section>
@@ -992,17 +992,59 @@ document.getElementById('themeToggle').addEventListener('click', () => {
 const appleURL = 'https://www.apple.com/kr/shop/buy-mac/macbook-pro';
 const cpURL = (p, i, v) => `https://www.coupang.com/vp/products/${p}?itemId=${i}&vendorItemId=${v}`;
 
+// 기본 스펙 정의 (한글/영문 쿠팡 가격 및 URL 매핑)
 const baseSpecs = [
-  {id: '14-pro-48', size: 14, chip: 'Pro', cpu: 15, gpu: 16, ram: 48, ssd: 1, apple: 5210000, cp: 4754700, url: cpURL('9140128274', '28093741940', '95050035785')},
-  {id: '14-pro18-48', size: 14, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 1, apple: 5660000, cp: null, url: null},
-  {id: '14-pro-64', size: 14, chip: 'Pro', cpu: 18, gpu: 20, ram: 64, ssd: 1, apple: 6340000, cp: null, url: null},
-  {id: '16-pro-48', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 1, apple: 6010000, cp: 5566770, url: cpURL('9410700446', '27961799447', '94919837921')},
-  {id: '16-pro-48-2tb', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 2, apple: 6860000, cp: 6416770, url: cpURL('9410700446', '28093741945', '95050035765')},
-  {id: '16-pro-64', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 64, ssd: 1, apple: 6690000, cp: null, url: null},
-  {id: '14-max-48', size: 14, chip: 'Max', cpu: 18, gpu: 40, ram: 48, ssd: 2, apple: 8010000, cp: null, url: null},
-  {id: '14-max-64', size: 14, chip: 'Max', cpu: 18, gpu: 40, ram: 64, ssd: 2, apple: 8690000, cp: null, url: null},
-  {id: '16-max-48', size: 16, chip: 'Max', cpu: 18, gpu: 40, ram: 48, ssd: 2, apple: 8490000, cp: 7540000, url: cpURL('9410700446', '27961799450', '94919837915')},
-  {id: '16-max-64', size: 16, chip: 'Max', cpu: 18, gpu: 40, ram: 64, ssd: 2, apple: 9170000, cp: 8220000, url: cpURL('9410700446', '28093741909', '95050035744')}
+  {
+    id: '14-pro-48', size: 14, chip: 'Pro', cpu: 15, gpu: 16, ram: 48, ssd: 1,
+    apple: 5210000,
+    cpKr: 4754700, urlKr: cpURL('9140128274', '28093741940', '95050035785'),
+    cpEn: null, urlEn: null
+  },
+  {
+    id: '14-pro18-48', size: 14, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 1,
+    apple: 5660000, cpKr: null, urlKr: null, cpEn: null, urlEn: null
+  },
+  {
+    id: '14-pro-64', size: 14, chip: 'Pro', cpu: 18, gpu: 20, ram: 64, ssd: 1,
+    apple: 6340000, cpKr: null, urlKr: null, cpEn: null, urlEn: null
+  },
+  {
+    id: '16-pro-48', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 1,
+    apple: 6010000,
+    cpKr: 5566770, urlKr: cpURL('9410700446', '27961799447', '94919837921'),
+    // 사용자 제보 16인치 영문(US) 자판 쿠팡 재고 상품 연동
+    cpEn: 5566770, urlEn: cpURL('9410700446', '28078100527', '95034603133')
+  },
+  {
+    id: '16-pro-48-2tb', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 2,
+    apple: 6860000,
+    cpKr: 6416770, urlKr: cpURL('9410700446', '28093741945', '95050035765'),
+    cpEn: 6416770, urlEn: cpURL('9410700446', '28078100527', '95034603133')
+  },
+  {
+    id: '16-pro-64', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 64, ssd: 1,
+    apple: 6690000, cpKr: null, urlKr: null, cpEn: null, urlEn: null
+  },
+  {
+    id: '14-max-48', size: 14, chip: 'Max', cpu: 18, gpu: 40, ram: 48, ssd: 2,
+    apple: 8010000, cpKr: null, urlKr: null, cpEn: null, urlEn: null
+  },
+  {
+    id: '14-max-64', size: 14, chip: 'Max', cpu: 18, gpu: 40, ram: 64, ssd: 2,
+    apple: 8690000, cpKr: null, urlKr: null, cpEn: null, urlEn: null
+  },
+  {
+    id: '16-max-48', size: 16, chip: 'Max', cpu: 18, gpu: 40, ram: 48, ssd: 2,
+    apple: 8490000,
+    cpKr: 7540000, urlKr: cpURL('9410700446', '27961799450', '94919837915'),
+    cpEn: 7540000, urlEn: cpURL('9410700446', '28078100527', '95034603133')
+  },
+  {
+    id: '16-max-64', size: 16, chip: 'Max', cpu: 18, gpu: 40, ram: 64, ssd: 2,
+    apple: 9170000,
+    cpKr: 8220000, urlKr: cpURL('9410700446', '28093741909', '95050035744'),
+    cpEn: 8220000, urlEn: cpURL('9410700446', '28078100527', '95034603133')
+  }
 ];
 
 const colorOptions = [
@@ -1015,13 +1057,22 @@ const kbdOptions = [
   { key: 'en', label: '영문(US) 자판', icon: '🇺🇸' }
 ];
 
-// 색상 및 키보드 조합 모델 데이터 생성
+// 모델 데이터 조합 생성
 const models = [];
 baseSpecs.forEach(spec => {
   colorOptions.forEach(col => {
     kbdOptions.forEach(k => {
       const isKr = k.key === 'kr';
-      const isCoupangEligible = isKr && spec.cp !== null;
+      const cpPrice = isKr ? spec.cpKr : spec.cpEn;
+      const targetUrl = isKr ? spec.urlKr : spec.urlEn;
+
+      let detailText = '';
+      if (targetUrl) {
+        detailText = `${col.label} · 쿠팡 로켓배송 (${k.label} 재고)`;
+      } else {
+        detailText = isKr ? `${col.label} · 공홈 맞춤 구성` : `${col.label} · 공홈 주문 제작(CTO)`;
+      }
+
       models.push({
         ...spec,
         id: `${spec.id}-${col.key}-${k.key}`,
@@ -1031,9 +1082,9 @@ baseSpecs.forEach(spec => {
         kbd: k.key,
         kbdName: k.label,
         kbdIcon: k.icon,
-        cp: isCoupangEligible ? spec.cp : null,
-        url: isCoupangEligible ? spec.url : null,
-        detailText: isKr ? `${col.label} · ${spec.url ? '쿠팡 로켓배송' : '공홈 맞춤 구성'}` : `${col.label} · 공홈 맞춤 주문(CTO) 전용`
+        cp: cpPrice,
+        url: targetUrl,
+        detailText: detailText
       });
     });
   });
@@ -1081,7 +1132,7 @@ function render() {
         <div class="cardhead">
           <div>
             <h3>${m.size}인치 MacBook Pro</h3>
-            <p class="spec">${m.cpu}코어 CPU · ${m.gpu}코어 GPU · ${m.colorName} · ${isKr ? '한글 키보드' : '영문(US) 키보드'}</p>
+            <p class="spec">${m.cpu}코어 CPU · ${m.gpu}코어 GPU · ${m.colorName} · ${isKr ? '한글 자판' : '영문(US) 자판'}</p>
           </div>
           <span class="chip ${m.chip === 'Max' ? 'max' : ''}">M5 ${m.chip}</span>
         </div>
@@ -1106,7 +1157,7 @@ function render() {
         </div>
         <div class="breakdown">
           <span>${care ? 'AppleCare+ 공홈 ' + money(careCost(m, 'apple')) : 'AppleCare+ 제외'}</span>
-          <span>${care && c !== null ? '쿠팡 ' + money(careCost(m, 'cp')) : (c === null ? (isKr ? '공홈 기준으로 비교 가능' : '공홈 동일 가격') : '새 상품 기준')}</span>
+          <span>${care && c !== null ? '쿠팡 ' + money(careCost(m, 'cp')) : (c === null ? '공홈 기준으로 비교 가능' : '새 상품 기준')}</span>
         </div>
         <div class="cardfooter">
           <span class="detail">${m.detailText}</span>
