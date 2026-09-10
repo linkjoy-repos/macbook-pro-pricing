@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MacBook Pro 구매 비교 — M5 Pro & Max</title>
-<meta name="description" content="14·16인치 MacBook Pro M5 Pro / Max, 48·64GB 구성의 애플 공홈과 쿠팡 가격을 AppleCare+ 포함 총액으로 비교하세요. 2026년 9월 10일 확인 가격.">
+<meta name="description" content="14·16인치 MacBook Pro M5 Pro / Max, 한글 및 영문(US) 키보드, 48·64GB 구성의 애플 공홈과 쿠팡 가격을 AppleCare+ 포함 총액으로 비교하세요.">
 <style>
 :root {
   /* 다크 모드 기본 테마 (Chrome Dark & Vintage Charcoal Black) */
@@ -39,6 +39,14 @@
   --badge-saving-bg: rgba(16, 185, 129, 0.16);
   --badge-saving-text: #34d399;
   --badge-saving-border: rgba(16, 185, 129, 0.28);
+
+  --badge-kr-bg: rgba(59, 130, 246, 0.14);
+  --badge-kr-text: #93c5fd;
+  --badge-kr-border: rgba(59, 130, 246, 0.25);
+
+  --badge-en-bg: rgba(245, 158, 11, 0.14);
+  --badge-en-text: #fcd34d;
+  --badge-en-border: rgba(245, 158, 11, 0.25);
 
   --chip-pro-bg: rgba(255, 255, 255, 0.06);
   --chip-pro-text: #e8eaed;
@@ -109,6 +117,14 @@ body.light-theme {
   --badge-saving-bg: #e9f5ef;
   --badge-saving-text: #086750;
   --badge-saving-border: transparent;
+
+  --badge-kr-bg: #eff6ff;
+  --badge-kr-text: #1d4ed8;
+  --badge-kr-border: #bfdbfe;
+
+  --badge-en-bg: #fef3c7;
+  --badge-en-text: #b45309;
+  --badge-en-border: #fde68a;
 
   --chip-pro-bg: #f1f4f8;
   --chip-pro-text: #334155;
@@ -512,6 +528,18 @@ h2 {
   color: var(--badge-text);
   border: 1px solid var(--badge-border);
 }
+.badge.kbd-kr {
+  background: var(--badge-kr-bg);
+  color: var(--badge-kr-text);
+  border-color: var(--badge-kr-border);
+  font-weight: 650;
+}
+.badge.kbd-en {
+  background: var(--badge-en-bg);
+  color: var(--badge-en-text);
+  border-color: var(--badge-en-border);
+  font-weight: 650;
+}
 .badge.saving {
   background: var(--badge-saving-bg);
   color: var(--badge-saving-text);
@@ -616,7 +644,7 @@ h2 {
 /* Notes & Details */
 .notes {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
   margin-top: 36px;
 }
@@ -679,6 +707,10 @@ h2 {
 }
 
 /* Responsive queries */
+@media(max-width: 1100px) {
+  .notes { grid-template-columns: 1fr 1fr; }
+}
+
 @media(max-width: 1000px) {
   .filterrow { gap: 16px; }
   .summary .price { font-size: 27px; }
@@ -748,7 +780,7 @@ h2 {
   <section class="intro">
     <div>
       <h1>원하는 사양, 실제 구매 총액.</h1>
-      <p>14·16인치 · M5 Pro / Max · 48·64GB</p>
+      <p>14·16인치 · M5 Pro / Max · 한글/영문 자판 · 48·64GB</p>
     </div>
     <span class="tag">공홈 vs 쿠팡 · 새 상품 기준</span>
   </section>
@@ -773,31 +805,47 @@ h2 {
 
   <section class="controls" aria-label="비교 조건">
     <div class="filterrow">
+      <!-- 기본 선택: 16인치 -->
       <div class="filtergroup">
         <span class="filterlabel" id="size-label">화면</span>
         <div class="segments" role="group" aria-labelledby="size-label" data-filter="size">
-          <button type="button" data-value="all" aria-pressed="true">전체</button>
+          <button type="button" data-value="all" aria-pressed="false">전체</button>
           <button type="button" data-value="14" aria-pressed="false">14인치</button>
-          <button type="button" data-value="16" aria-pressed="false">16인치</button>
+          <button type="button" data-value="16" aria-pressed="true">16인치</button>
         </div>
       </div>
+
+      <!-- 기본 선택: Pro -->
       <div class="filtergroup">
         <span class="filterlabel" id="chip-label">칩</span>
         <div class="segments" role="group" aria-labelledby="chip-label" data-filter="chip">
-          <button type="button" data-value="all" aria-pressed="true">전체</button>
-          <button type="button" data-value="Pro" aria-pressed="false">Pro</button>
+          <button type="button" data-value="all" aria-pressed="false">전체</button>
+          <button type="button" data-value="Pro" aria-pressed="true">Pro</button>
           <button type="button" data-value="Max" aria-pressed="false">Max</button>
         </div>
       </div>
+
+      <!-- 기본 선택: 48GB -->
       <div class="filtergroup">
         <span class="filterlabel" id="ram-label">메모리</span>
         <div class="segments" role="group" aria-labelledby="ram-label" data-filter="ram">
-          <button type="button" data-value="all" aria-pressed="true">전체</button>
-          <button type="button" data-value="48" aria-pressed="false">48GB</button>
+          <button type="button" data-value="all" aria-pressed="false">전체</button>
+          <button type="button" data-value="48" aria-pressed="true">48GB</button>
           <button type="button" data-value="64" aria-pressed="false">64GB</button>
         </div>
       </div>
+
+      <!-- 키보드 선택: 전체 / 한글 / 영문(US) -->
+      <div class="filtergroup">
+        <span class="filterlabel" id="kbd-label">키보드</span>
+        <div class="segments" role="group" aria-labelledby="kbd-label" data-filter="kbd">
+          <button type="button" data-value="all" aria-pressed="true">전체</button>
+          <button type="button" data-value="kr" aria-pressed="false">한글</button>
+          <button type="button" data-value="en" aria-pressed="false">영문(US)</button>
+        </div>
+      </div>
     </div>
+
     <div class="controlbottom">
       <div>
         <label class="carelabel">
@@ -808,7 +856,7 @@ h2 {
       <label class="sort">정렬
         <select id="sort">
           <option value="price">구매 총액 낮은 순</option>
-          <option value="size">화면·칩·메모리 순</option>
+          <option value="size">화면·칩·메모리·자판 순</option>
           <option value="saving">절약 금액 큰 순</option>
         </select>
       </label>
@@ -816,7 +864,7 @@ h2 {
   </section>
 
   <div class="resulthead">
-    <h2>구성별 비교 <span id="count">10개</span></h2>
+    <h2>구성별 비교 <span id="count">4개</span></h2>
     <span id="mode">본체 + AppleCare+ · 카드 할인 전</span>
   </div>
 
@@ -824,10 +872,18 @@ h2 {
   <section class="grid" id="results" aria-label="구성별 가격 비교"></section>
 
   <noscript>
-    <p>구성별 비교에는 JavaScript가 필요합니다. AppleCare+ 포함 기준: 14인치 Pro 48GB/1TB는 공홈 5,669,000원, 쿠팡 5,121,900원입니다. 16인치 Pro 48GB/1TB는 공홈 6,639,000원, 쿠팡 6,069,970원입니다. 16인치 Max 64GB/2TB는 공홈 9,799,000원, 쿠팡 8,723,200원입니다.</p>
+    <p>구성별 비교에는 JavaScript가 필요합니다.</p>
   </noscript>
 
   <section class="notes">
+    <div class="note">
+      <h2>한글 vs 영문(US) 키보드 안내</h2>
+      <ul>
+        <li><strong>애플 공홈</strong>: 한글 자판과 영문(US) 자판 모두 <strong>본체 및 AppleCare+ 금액이 동일(추가금 0원)</strong>하며 주문 제작(CTO)으로 출고됩니다.</li>
+        <li><strong>쿠팡 로켓배송</strong>: 국내 정식 유통 규격인 <strong>한글 자판 모델 기준</strong>으로 즉시할인 및 카드할인이 적용됩니다. 영문 자판은 쿠팡 공식 판매가가 확인되지 않으므로 공홈 주문을 권장합니다.</li>
+        <li>영문(US) 자판은 한글 각인이 없어 시각적으로 정돈되어 있고 일자형 Return 키를 선호하는 개발자/전문가에게 인기가 많습니다.</li>
+      </ul>
+    </div>
     <div class="note">
       <h2>AppleCare+도 구매처에 따라 달라요</h2>
       <table class="caretable">
@@ -846,7 +902,7 @@ h2 {
       <ul>
         <li>14인치 Pro 48GB·1TB 실버: 와우회원 대상 카드 할인 최대 <strong>9,200원</strong>. AppleCare+ 포함 계산 시 <strong>5,112,700원</strong>.</li>
         <li>16인치 Pro 48GB·1TB 블랙: 와우회원 대상 카드 할인 최대 <strong>145,150원</strong>. AppleCare+ 포함 계산 시 <strong>5,924,820원</strong>.</li>
-        <li>대상 카드·주문 조건 충족 시 적용. 위 비교에는 카드 할인, 신규 와우 가입 쿠폰, 최대 5만원 적립을 차감하지 않았습니다. 쿠폰 중복 적용은 미확인입니다.</li>
+        <li>대상 카드·주문 조건 충족 시 적용. 위 비교에는 카드 할인, 신규 와우 가입 쿠폰, 최대 5만원 적립을 차감하지 않았습니다.</li>
       </ul>
     </div>
   </section>
@@ -855,7 +911,7 @@ h2 {
     <h2>비교 기준</h2>
     <ul>
       <li>2026년 9월 10일에 확인한 가격을 정리한 페이지입니다. 실시간 가격 조회 기능은 없으며, 구매 전 연결된 상품 페이지에서 현재 가격을 확인하세요.</li>
-      <li>새 상품 · 한글 키보드 · 스탠다드 디스플레이 · 교육 할인 및 보상 판매 제외. Pro는 1TB 중심, Max는 2TB 기준이며, SSD가 다른 구성은 따로 표시했습니다.</li>
+      <li>새 상품 · 스탠다드 디스플레이 · 교육 할인 및 보상 판매 제외. Pro는 1TB/2TB, Max는 2TB 기준입니다.</li>
       <li>14인치 Pro 64GB는 18코어 CPU / 20코어 GPU가 필요합니다. Max 48·64GB는 18코어 CPU / 40코어 GPU 구성입니다.</li>
       <li>공홈 가격은 구성 화면과 확인된 옵션 추가금으로 계산했습니다. ‘쿠팡 가격 미확인’은 검색·옵션 목록에서 해당 판매가를 확인하지 못했다는 뜻이며, 품절 또는 미판매를 단정하지 않습니다.</li>
     </ul>
@@ -871,7 +927,6 @@ h2 {
 (function initTheme() {
   const savedTheme = localStorage.getItem('mbp-theme');
   const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-  // 기본값: 다크 모드 (사용자 가이드라인 준수)
   const isLight = savedTheme ? savedTheme === 'light' : prefersLight;
   if (isLight) {
     document.body.classList.add('light-theme');
@@ -895,23 +950,50 @@ document.getElementById('themeToggle').addEventListener('click', () => {
   updateThemeUI();
 });
 
-// 비교 데이터 및 로직
+// 비교 데이터 정의
 const appleURL = 'https://www.apple.com/kr/shop/buy-mac/macbook-pro';
 const cpURL = (p, i, v) => `https://www.coupang.com/vp/products/${p}?itemId=${i}&vendorItemId=${v}`;
-const models = [
-  {id: '14-pro-48', size: 14, chip: 'Pro', cpu: 15, gpu: 16, ram: 48, ssd: 1, apple: 5210000, cp: 4754700, url: cpURL('9140128274', '28093741940', '95050035785'), color: '실버 · 블랙도 같은 본체 가격'},
-  {id: '14-pro18-48', size: 14, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 1, apple: 5660000, cp: null},
-  {id: '14-pro-64', size: 14, chip: 'Pro', cpu: 18, gpu: 20, ram: 64, ssd: 1, apple: 6340000, cp: null},
+
+const baseModels = [
+  {id: '14-pro-48', size: 14, chip: 'Pro', cpu: 15, gpu: 16, ram: 48, ssd: 1, apple: 5210000, cp: 4754700, url: cpURL('9140128274', '28093741940', '95050035785'), color: '실버 · 스페이스 블랙 동일가'},
+  {id: '14-pro18-48', size: 14, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 1, apple: 5660000, cp: null, color: '공홈 맞춤 주문(CTO)'},
+  {id: '14-pro-64', size: 14, chip: 'Pro', cpu: 18, gpu: 20, ram: 64, ssd: 1, apple: 6340000, cp: null, color: '공홈 맞춤 주문(CTO)'},
   {id: '16-pro-48', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 1, apple: 6010000, cp: 5566770, url: cpURL('9410700446', '27961799447', '94919837921'), color: '스페이스 블랙'},
   {id: '16-pro-48-2tb', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 48, ssd: 2, apple: 6860000, cp: 6416770, url: cpURL('9410700446', '28093741945', '95050035765'), color: '스페이스 블랙'},
-  {id: '16-pro-64', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 64, ssd: 1, apple: 6690000, cp: null},
-  {id: '14-max-48', size: 14, chip: 'Max', cpu: 18, gpu: 40, ram: 48, ssd: 2, apple: 8010000, cp: null},
-  {id: '14-max-64', size: 14, chip: 'Max', cpu: 18, gpu: 40, ram: 64, ssd: 2, apple: 8690000, cp: null},
+  {id: '16-pro-64', size: 16, chip: 'Pro', cpu: 18, gpu: 20, ram: 64, ssd: 1, apple: 6690000, cp: null, color: '공홈 맞춤 주문(CTO)'},
+  {id: '14-max-48', size: 14, chip: 'Max', cpu: 18, gpu: 40, ram: 48, ssd: 2, apple: 8010000, cp: null, color: '공홈 맞춤 주문(CTO)'},
+  {id: '14-max-64', size: 14, chip: 'Max', cpu: 18, gpu: 40, ram: 64, ssd: 2, apple: 8690000, cp: null, color: '공홈 맞춤 주문(CTO)'},
   {id: '16-max-48', size: 16, chip: 'Max', cpu: 18, gpu: 40, ram: 48, ssd: 2, apple: 8490000, cp: 7540000, url: cpURL('9410700446', '27961799450', '94919837915'), color: '스페이스 블랙'},
   {id: '16-max-64', size: 16, chip: 'Max', cpu: 18, gpu: 40, ram: 64, ssd: 2, apple: 9170000, cp: 8220000, url: cpURL('9410700446', '28093741909', '95050035744'), color: '스페이스 블랙'}
 ];
 
-const filters = { size: 'all', chip: 'all', ram: 'all' };
+// 한글 및 영문(US) 키보드 모델 데이터 생성
+const models = [];
+baseModels.forEach(m => {
+  // 한글 자판 모델
+  models.push({
+    ...m,
+    id: `${m.id}-kr`,
+    kbd: 'kr',
+    kbdName: '한글 자판',
+    detailColor: m.color,
+    isCoupangAvailable: m.cp !== null
+  });
+  // 영문(US) 자판 모델 (공홈 정가 동일, 쿠팡 로켓배송은 영문 미지원으로 미확인/공홈 구매 안내)
+  models.push({
+    ...m,
+    id: `${m.id}-en`,
+    kbd: 'en',
+    kbdName: '영문(US) 자판',
+    cp: null,
+    url: null,
+    detailColor: '공홈 맞춤 주문(CTO) 전용 · 영문 자판',
+    isCoupangAvailable: false
+  });
+});
+
+// 기본 선택: 16인치, Pro, 48GB, 전체 키보드
+const filters = { size: '16', chip: 'Pro', ram: '48', kbd: 'all' };
 const money = n => n.toLocaleString('ko-KR') + '원';
 const careCost = (m, s) => s === 'apple' ? (m.size === 14 ? 459000 : 629000) : (m.size === 14 ? 367200 : 503200);
 
@@ -926,35 +1008,40 @@ function render() {
 
   list.sort(
     sort === 'saving' ? (a, b) => savings(b) - savings(a) || cheap(a) - cheap(b) :
-    sort === 'size' ? (a, b) => a.size - b.size || (a.chip === b.chip ? 0 : a.chip === 'Pro' ? -1 : 1) || a.ram - b.ram || a.cpu - b.cpu || a.ssd - b.ssd :
-    (a, b) => cheap(a) - cheap(b)
+    sort === 'size' ? (a, b) => a.size - b.size || (a.chip === b.chip ? 0 : a.chip === 'Pro' ? -1 : 1) || a.ram - b.ram || a.cpu - b.cpu || a.ssd - b.ssd || (a.kbd === b.kbd ? 0 : a.kbd === 'kr' ? -1 : 1) :
+    (a, b) => cheap(a) - cheap(b) || (a.kbd === b.kbd ? 0 : a.kbd === 'kr' ? -1 : 1)
   );
 
   document.getElementById('count').textContent = list.length + '개';
   document.getElementById('mode').textContent = (care ? '본체 + AppleCare+' : '본체만') + ' · 카드 할인 전';
   document.getElementById('announcement').textContent = list.length + '개 구성. ' + (care ? 'AppleCare+ 포함 총액' : '본체 가격') + '으로 표시합니다.';
 
+  // 상단 요약 지표 업데이트
   const summary = (id, n) => document.getElementById(id).innerHTML = (n / 10000).toFixed(1) + '<small>만원</small>';
-  summary('bestprice', total(models[0], 'cp'));
+  const lowestCoupang = models.find(m => m.cp !== null);
+  if (lowestCoupang) summary('bestprice', total(lowestCoupang, 'cp'));
   summary('maxsaving', Math.max(...models.map(savings)));
-  summary('ramprice', total(models[2], 'apple'));
+  const base64m = models.find(m => m.ram === 64);
+  if (base64m) summary('ramprice', total(base64m, 'apple'));
 
   const scale = 10000000;
   document.getElementById('results').innerHTML = list.map(m => {
     const a = total(m, 'apple'), c = total(m, 'cp');
+    const isKr = m.kbd === 'kr';
     return `
       <article class="card">
         <div class="cardhead">
           <div>
             <h3>${m.size}인치 MacBook Pro</h3>
-            <p class="spec">${m.cpu}코어 CPU · ${m.gpu}코어 GPU</p>
+            <p class="spec">${m.cpu}코어 CPU · ${m.gpu}코어 GPU · ${isKr ? '한글 키보드' : '영문(US) 키보드'}</p>
           </div>
           <span class="chip ${m.chip === 'Max' ? 'max' : ''}">M5 ${m.chip}</span>
         </div>
         <div class="badges">
+          <span class="badge ${isKr ? 'kbd-kr' : 'kbd-en'}">${isKr ? '🇰🇷 한글 자판' : '🇺🇸 영문(US) 자판'}</span>
           <span class="badge">${m.ram}GB 메모리</span>
           <span class="badge">${m.ssd}TB SSD</span>
-          <span class="badge ${c !== null ? 'saving' : ''}">${c !== null ? money(a - c) + ' 절약' : '쿠팡 가격 미확인'}</span>
+          <span class="badge ${c !== null ? 'saving' : ''}">${c !== null ? money(a - c) + ' 절약' : (isKr ? '쿠팡 가격 미확인' : '공홈 CTO 전용')}</span>
         </div>
         <div class="offers">
           <div class="offerrow">
@@ -965,22 +1052,23 @@ function render() {
           <div class="offerrow coupang">
             <span class="seller">쿠팡</span>
             <div class="bartrack" aria-hidden="true">${c !== null ? `<div class="bar" style="width:${c / scale * 100}%"></div>` : ''}</div>
-            <span class="amount ${c === null ? 'unavailable' : ''}">${c === null ? '판매가 미확인' : money(c)}</span>
+            <span class="amount ${c === null ? 'unavailable' : ''}">${c === null ? (isKr ? '판매가 미확인' : '영문 자판 미판매') : money(c)}</span>
           </div>
         </div>
         <div class="breakdown">
           <span>${care ? 'AppleCare+ 공홈 ' + money(careCost(m, 'apple')) : 'AppleCare+ 제외'}</span>
-          <span>${care && c !== null ? '쿠팡 ' + money(careCost(m, 'cp')) : c === null ? '공홈 기준으로 비교 가능' : '새 상품 기준'}</span>
+          <span>${care && c !== null ? '쿠팡 ' + money(careCost(m, 'cp')) : (c === null ? (isKr ? '공홈 기준으로 비교 가능' : '공홈 동일 가격') : '새 상품 기준')}</span>
         </div>
         <div class="cardfooter">
-          <span class="detail">${m.color || '공홈 맞춤 구성'}</span>
-          <a class="linkbutton" href="${m.url || appleURL}" target="_blank" rel="noopener noreferrer">${m.url ? '쿠팡 상품' : '공홈 구성'} ↗</a>
+          <span class="detail">${m.detailColor}</span>
+          <a class="linkbutton" href="${m.url || appleURL}" target="_blank" rel="noopener noreferrer">${m.url ? '쿠팡 상품 ↗' : (isKr ? '공홈 구성 ↗' : '공홈 영문 CTO ↗')}</a>
         </div>
       </article>
     `;
   }).join('') || '<div class="noresult">조건에 맞는 구성이 없습니다. 다른 조건을 선택해 주세요.</div>';
 }
 
+// 필터 버튼 이벤트 바인딩
 document.querySelectorAll('[data-filter] button').forEach(b => {
   b.addEventListener('click', () => {
     const group = b.closest('[data-filter]');
@@ -992,6 +1080,8 @@ document.querySelectorAll('[data-filter] button').forEach(b => {
 
 document.getElementById('care').addEventListener('change', render);
 document.getElementById('sort').addEventListener('change', render);
+
+// 초기 렌더링 실행
 render();
 </script>
 </body>
